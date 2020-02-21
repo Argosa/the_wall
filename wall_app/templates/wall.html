@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Welcome to the Wall</title>
+</head>
+<body>
+    <div class='container bg-light'>
+        <div class='row bg-dark text-white'>
+            <h2 class='col'>CodingDojo Wall</h2>
+            <h4 class='col text-right mr-5 mt-2'>Welcome {{ user.first_name }} {{ user.last_name }}</h4>
+        </div>
+        <form class='form-group row' action='/process_post' method='POST'>
+            {% csrf_token %}
+            <textarea class='form-control' name='my_post' placeholder='Enter comment here'></textarea>
+            <button class='btn btn-warning mt-4 ml-2' type='submit'>Post</button>
+        </form>
+        {% for post in all_messages %}
+        <div>
+            <h3 class='row'>{{ post.user.first_name}} {{ post.user.last_name }}</h3>
+            <p class='row'>{{ post.message }}</p>
+            <p class='row'
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

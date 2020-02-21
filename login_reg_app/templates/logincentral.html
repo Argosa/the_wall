@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Welcome to the Wall Login and Registration</title>
+</head>
+<body>
+    <div class='container bg-light'>
+        <div class='row bg-dark text-white'>
+            <h2 class='col'>CodingDojo Wall</h2>
+            <h4 class='col text-right mr-5 mt-2'>Login and Registration</h4>
+        </div>
+        <div class='row bg-light'>
+            <form class='col form-group' action='/process_login' method="POST">
+                {% csrf_token %}
+                <h3>Login</h3>
+                <label for='email'>Email:</label>
+                <input class='form-control' type='text' id='email' name='email'>
+                <label for='password'>Password:</label>
+                <input class='form-control' type='password' id='password' name='password'>
+                <button class='btn btn-dark mt-5' type='submit'>Log In</button>
+            </form>
+            <form class='col form-group' action='/process_reg' method="POST">
+                {% csrf_token %}
+                <h3>Registration</h3>
+                <label for='first_name'>First Name:</label>
+                <input class='form-control' type='text' id='first_name' name='first_name'>
+                <label for='last_name'>Last Name:</label>
+                <input class='form-control' type='text' id='last_name' name='last_name'>
+                <label for='email'>Email:</label>
+                <input class='form-control' type='text' id='email' name='email'>
+                <label for='confirm_email'>Confirm Email:</label>
+                <input class='form-control' type='text' id='confirm_email' name='confirm_email'>
+                <label for='password'>Password:</label>
+                <input class='form-control' type='password' id='password' name='password'>
+                <label for='confirm_password'>Confirm Password:</label>
+                <input class='form-control' type='password' id='confirm_password' name='confirm_password'>
+                <button class='btn btn-dark mt-5' type='submit'>Register</button>
+            </form> 
+        </div>
+        <div class='row text-danger'>
+            {% if messages %}
+                {% for message in messages %}
+                <h5 {% if message.tags %} class='{{ message.tags}}'{% endif %}>{{ message }}</h5>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
