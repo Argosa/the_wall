@@ -43,7 +43,7 @@ def process_login(request):
         return redirect('/')
     else:
         request.session['user_id'] = validator['user_id']
-        return redirect('/success')
+        return redirect('wall/')
 
 def success(request):
     context = {

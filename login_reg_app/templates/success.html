@@ -7,8 +7,11 @@
     <title>Success</title>
 </head>
 <body>
-    <h1>Welcome {{ current_user.first_name }} {{ current_user.last_name }}</h1>
-    <h2>Email {{ current_user.email }}</h2>
-    <a href='/logout'>Logout</a>
+    <div class='container bg-dark text-white'>
+        <h1>Welcome {{ current_user.first_name }} {{ current_user.last_name }}</h1>
+        <h2>Email {{ current_user.email }}</h2>
+        <a class='row' href='/wall'>The Wall</a>
+        <a class='row' href='/logout'>Logout</a>
+    </div>
 </body>
 </html>
